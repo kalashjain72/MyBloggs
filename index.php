@@ -44,25 +44,30 @@ session_start();
 
     <main>
         <div class="contant">
-        <?php
-        require_once("model/show_title.php");
-       // check if any rows were returned
-        if (mysqli_num_rows($result) > 0) {
-            // loop through each row and display the title
-            while ($row = mysqli_fetch_assoc($result)) {
-                //var_dump($row);
-                echo "<a href='view/blog_post.php?id=" . $row["id"] . "'>";
-                echo "<div class='box'>";
-                echo "<p>" . $row["title"] . "</p>";
-                echo "</div>";
-                echo "</a>";
+            <?php
+            require_once("model/show_title.php");
+            // check if any rows were returned
+            if (mysqli_num_rows($result) > 0) {
+                // loop through each row and display the title
+                while ($row = mysqli_fetch_assoc($result)) {
+                    //var_dump($row);
+                    echo "<a href='view/blog_post.php?id=" . $row["id"] . "'>";
+                    echo "<div class='box'>";
+                    echo "<p>" . $row["title"] . "</p>";
+                    echo "</div>";
+                    echo "</a>";
+                }
             }
-        }
-        mysqli_close($conn);
-        ?>
+            mysqli_close($conn);
+            ?>
         </div>
     </main>
 
+    <footer style="background: linear-gradient(to bottom right, #B22222, #8B0000); margin-top: 20px;">
+        <div style="text-align: center; color: white; padding: 1px; ">
+            <p style="font-size: 18px;">Kalash Jain &copy; 2023</p>
+        </div>
+    </footer>
 
 
 </body>

@@ -116,6 +116,12 @@ session_start();
             </div>
         </div><!-- End Interests -->
     </section><!-- End About Section -->
+    <footer style="background: linear-gradient(to bottom right, #B22222, #8B0000); margin-top: 20px;">
+        <div style="text-align: center; color: white; padding: 1px; ">
+            <p style="font-size: 18px;">Kalash Jain &copy; 2023</p>
+        </div>
+    </footer>
 </body>
+
 
 </html>
