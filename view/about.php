@@ -82,7 +82,6 @@ session_start();
             <div class="section-title">
                 <h2>Interests</h2>
             </div>
-
             <div class="row">
                 <div class="col-lg-3 col-md-4">
                     <div class="icon-box">
@@ -90,8 +89,6 @@ session_start();
                         <h3>Cyber Security</h3>
                     </div>
                 </div>
-
-        
                 <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                     <div class="icon-box">
                         <i class="ri-robot-fill" style="color: #e80368;"></i>
@@ -110,7 +107,6 @@ session_start();
                         <h3>Automation and IOT</h3>
                     </div>
                 </div>
-    
                 <div class="col-lg-3 col-md-4 mt-4">
                     <div class="icon-box">
                         <i class="ri-flight-takeoff-fill" style="color: #ffc107;"></i>
@@ -118,7 +114,6 @@ session_start();
                     </div>
                 </div>
             </div>
-
         </div><!-- End Interests -->
     </section><!-- End About Section -->
 </body>

@@ -8,10 +8,10 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Blog</title>
+    <title>Edit Blog</title>
     <link rel="stylesheet" type="text/css" href="style/nav_style.css">
     <link rel="stylesheet" type="text/css" href="../view/style/create_blog.css">
-    <script src="../view/script/date.js"></script>
+    <script src="../view/script/ed_date.js"></script>
 
 
 </head>
@@ -42,20 +42,28 @@ session_start();
         </nav>
     </header>
     <div class=blog-box>
-        <form action="../controller/create_blog_handle.php" method="post">
-            <form>
+        
+        
+                <?php
+            if(isset($_GET['id'])) { 
+                // Get the id parameter from the URL
+                require_once("../model/show_blog.php"); ?>
+                <form action="../controller/edit_blog_handle.php" method="post">
+                <label for="Id">Blog Id:</label>
+                <input type="text" id="Blog_id" name="Blog_id" value=" <?php echo $_GET['id']; ?>" readonly>
                 
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" value ="<?php echo $row['title']; ?>" required>
                 <label for="author">Author:</label>
                 <input type="text" id="author" name="author" value=" <?php echo $_SESSION['username']; ?>" readonly>
                 <label for="date">Publication Date:</label>
-                <input type="date" id="date" name="date" readonly>
+                <input type="date" id="date" name="date"  readonly>
                 <label for="content">Content:</label>
-                <textarea id="content" name="content" required></textarea>
-                <input type="submit" value="Post Blog">
-
-            </form>
+                <textarea id="content" name="content" required><?php echo $row['content']; ?></textarea>
+                <input type="submit" value="Edit Blog">
+                
+                </form>
+                <?php } ?>
     </div>
 
 </body>

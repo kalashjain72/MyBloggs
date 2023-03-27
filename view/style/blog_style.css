@@ -1,0 +1,94 @@
+/* Main container */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Heading */
+  .heading h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Meta information */
+  .meta-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .meta-info p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .author:before {
+    content: "by ";
+  }
+  
+  .date:before {
+    content: "on ";
+  }
+  
+  /* Blog content */
+  .blog {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    color: #333;
+  }
+  
+  .blog p:first-child {
+    margin-top: 0;
+  }
+  
+  .blog p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Action buttons */
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .delete-button {
+    margin-right: 20px;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #cc0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: #990000;
+  }
+  
+  .edit-button {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #666;
+  }
+  

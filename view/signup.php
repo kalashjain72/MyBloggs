@@ -32,15 +32,16 @@
       <label for="number">Mobile Number</label>
       <input type="tel" id="phone" name="phone">
       <input type="submit" value="Create an account">
+      
     </form>
   </div>
 </body>
+
 <script>
   $(document).ready(function() {
     $('form').submit(function(event) {
       var newPassword = $('#new').val();
       var confirmPassword = $('#confirm').val();
-
       if (newPassword !== confirmPassword) {
         alert('Passwords do not match');
         event.preventDefault();

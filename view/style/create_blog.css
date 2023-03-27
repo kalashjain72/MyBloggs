@@ -1,6 +1,6 @@
 body {
 	font-family: Arial, sans-serif;
-    box-sizing: border-box;
+	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
 }
@@ -32,6 +32,19 @@ input {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 20px;
+}
+
+
+textarea {
+	width: 90%;
+	height: 150px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	resize: vertical;
 }
 
 input[type="submit"] {

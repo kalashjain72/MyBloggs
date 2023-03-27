@@ -10,11 +10,13 @@
 	<div class="login-box">
 		<h1>Login</h1>
 		<form action="../controller/login_handle.php" method="post">
+
 			<label for="email">Email</label>
 			<input type="email" id="email" name="email" required>
 			<label for="password">Password</label>
 			<input type="password" id="password" name="password" required>
 			<input type="submit" value="Login">
+			
         </form>
 		<a href="forgotpass.php">Forgot Password?</a>
         <p>New User? <a href="signup.php"> Create an account</a></p>

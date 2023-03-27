@@ -59,7 +59,7 @@ class User
             // sets the user variable in session and redirects to welcome page
             $_SESSION['valid'] = true;
             $_SESSION['timeout'] = time();
-            $_SESSION['username'] = $this->email;;
+            $_SESSION['username'] = $this->email;
             return true;
         }
     }
