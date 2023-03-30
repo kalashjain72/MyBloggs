@@ -58,7 +58,6 @@ session_start();
                     echo "</a>";
                 }
             }
-            mysqli_close($conn);
             ?>
         </div>
     </main>

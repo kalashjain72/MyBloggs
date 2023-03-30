@@ -2,7 +2,7 @@
     "name": "kalash-jain/php_in_action",
     "autoload": {
         "psr-4": {
-            "KalashJain\\PhpInAction\\": "src/"
+            "Model\\": "model/"
         }
     },
     "authors": [

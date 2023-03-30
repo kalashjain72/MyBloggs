@@ -1,32 +1,28 @@
 <?php
-require_once("../model/connection.php");
+namespace Model;
+require_once("../vendor/autoload.php");
+use Model\connection;
 
-class Blog
+class blog 
 {
     public $title;
     public $author;
     public $date;
     public $content;
-
-    // public function __construct($title, $author, $date, $content)
-    // {
-    //     $this->title = $title;
-    //     $this->author = $author;
-    //     $this->date = $date;
-    //     $this->content = $content;
-    // }
+    public $db;
     function __construct($data = [])
     {
         foreach ($data as $key => $value) {
             $this->$key = $value;
         }
+        $this->db = new connection();
     }
 
-    public function save($conn)
+    public function save()
     {
         $sql = "INSERT INTO blog (title, author, date, content) VALUES ('$this->title', '$this->author', '$this->date', '$this->content')";
-        // execute the query
-        $result = mysqli_query($conn, $sql);
+        //execute the query.
+        $result = mysqli_query($this->db->conn, $sql);
         if ($result) {
             header("Location: ../index.php?=Blog saved successfully.");
             return true;
@@ -35,13 +31,11 @@ class Blog
         }
     }
 
-    public function update($conn, $id)
+    public function update($id)
     {
-
         $sql = "UPDATE blog SET title = '$this->title', date = '$this->date', content = '$this->content' WHERE id = $id";
         // execute the query
-        $result = mysqli_query($conn, $sql);
-        echo "hi";
+        $result = mysqli_query($this->db->conn, $sql);
         if ($result) {
             header("Location: ../index.php?=Blog updated successfully.");
             return true;
@@ -49,10 +43,10 @@ class Blog
             false;
         }
     }
-    public function delete($conn, $id)
+    public function delete( $id)
     {
         $sql = "DELETE FROM blog WHERE id = $id";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($this->db->conn, $sql);
         if ($result) {
             header("Location: ../index.php?=Blog deleted successfully.");
             return true;

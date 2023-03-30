@@ -1,16 +1,28 @@
 <?php
-$username = "root";
-$password = "kalash72";
-$db = "BloggingWebsite";
+namespace Model;
 
-// Connecting to data base 
-$conn = new mysqli( "localhost",$username,$password,$db);
+class connection
+{
+    public $host = "localhost";
+    public $user = "root";
+    public $pass = "kalash72";
+    public $dbname = "BloggingWebsite";
+    public $conn;
 
-// to check sucessfully connected or not 
-if ($conn->connect_error) {
-    die("Connection failed: ". $conn->connect_error);
-} else {
-  // echo "connected";
+    function __construct()
+    {
+    
+        $this->conn = new \mysqli(
+            $this->host,
+            $this->user,
+            $this->pass,
+            $this->dbname
+        );
+        if ($this->conn->connect_error) {
+            die("Connection failed: "
+                . $this->conn->connect_error);
+        } else {
+        }
+    }
 }
-
 ?>

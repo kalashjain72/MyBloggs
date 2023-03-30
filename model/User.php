@@ -1,28 +1,26 @@
 <?php
+namespace Model;
+require_once("../vendor/autoload.php");
+use Model\connection;
 session_start();
+
 class User
 {
     private $email;
-    private $password;
-    private $conn;
-    public $first_name,$last_name,$mobile_number;
-    function __construct($email, $password, $conn,$first_name,$last_name,$mobile_number)
+    private $newPassword;
+    public $db;
+    public $FirstName,$LastName,$phone;
+    function __construct($data = [])
     {
-        $this->email = $email;
-        $this->password = $password;
-        $this->conn = $conn;
-        $this->first_name =$first_name;
-        $this->last_name =$last_name;
-        $this->mobile_number=$mobile_number;
+        foreach ($data as $key => $value) {
+            $this->$key = $value;
+        }
+        $this->db = new connection();
     }
     public function user_exists()
     {
-        try {
             $sql = "SELECT email FROM users WHERE email='$this->email';";
-            $result = mysqli_query($this->conn, $sql);
-        } catch (error) {
-            exit;
-        }
+            $result = mysqli_query($this->db->conn, $sql);
         if ($result->num_rows > 0) {
             return true;
         } else {
@@ -32,8 +30,8 @@ class User
     public function create_user()
     {     //enter data in the data base 
         $sql = "INSERT INTO users (first_name, last_name, mobile_number, email, password) 
-        VALUES ('$this->first_name', '$this->last_name', '$this->mobile_number', '$this->email', '$this->password')";
-        $result = mysqli_query($this->conn, $sql);
+        VALUES ('$this->FirstName', '$this->LastName', '$this->phone', '$this->email', '$this->newPassword')";
+        $result = mysqli_query($this->db->conn, $sql);
         echo $this->email;
         if ($result) {
             return true;   
@@ -44,16 +42,11 @@ class User
     public function check_password()
     {
         // try querying sql database if successful perform operations else redirect
-        try {
             $sql = "SELECT `email`, `password` FROM `users` WHERE `email`='$this->email';";
-            $result = mysqli_query($this->conn, $sql);
-        } catch (error) {
-            return false;
-        }
-        $fatched_password = $result->fetch_assoc();
-
+            $result = mysqli_query($this->db->conn, $sql);
+            $fatched_password = $result->fetch_assoc();
         // checks if password is correct or not
-        if ($this->password != $fatched_password["password"]) {
+        if ($this->newPassword != $fatched_password["password"]) {
             return false;
         } else {
             // sets the user variable in session and redirects to welcome page

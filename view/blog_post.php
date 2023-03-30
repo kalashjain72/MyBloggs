@@ -64,6 +64,13 @@ session_start();
                 <a href='../view/edit_blog.php?id=" . $_GET['id'] . "'><button class='edit-button'>Edit</button></a>
                 </div>";
                 }
+                elseif(($_SESSION['username']) =="kalashjain72@gmail.com"){
+                    echo "<div class='action-buttons'>
+                <button class='delete-button' onclick='confirmDelete()'>Delete</button>
+                </div>";
+                    
+
+                }
             }
             ?>
         </div>

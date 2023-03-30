@@ -5,24 +5,19 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
+use Model\connection;
+$db = new connection();
 
-try {
-    require_once("../model/connection.php");
-} catch (error) {
-    header("Location: ../view/login.php?message=error=cant_connect_to_data_base");
-}
 require_once("../model/User.php");
 $email=$_POST["email"];
 // call user exist function 
 try {
     $sql = "SELECT email FROM users WHERE email='$email';";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db->conn, $sql);
 } 
 catch (error) {
     exit;
 }
-
-
 if ($result->num_rows > 0) {
     $email=$_POST["email"];
 try {
